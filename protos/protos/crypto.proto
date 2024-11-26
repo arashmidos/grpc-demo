@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message Crypto{
+  string name = 1;
+  int32  id = 2;
+  double price = 3;
+}
+
+message GetCryptoByIdRequest{
+  int32 id = 1;
+}
+
+service CryptoService{
+  rpc getCryptoById(GetCryptoByIdRequest) returns (Crypto);
+  rpc getCryptoStream(GetCryptoByIdRequest) returns (stream Crypto);
+}
